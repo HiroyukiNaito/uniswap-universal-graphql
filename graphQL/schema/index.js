@@ -4,8 +4,6 @@ module.exports = `
 scalar Object
 scalar JSON
 
-
-
 type DecodedData {
     contents: [[Object]]
     deadline: String
