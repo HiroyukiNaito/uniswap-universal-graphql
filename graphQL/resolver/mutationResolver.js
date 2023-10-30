@@ -58,5 +58,6 @@ module.exports = {
                 return error;
             }
     }
-}
+},
+logger
 }
