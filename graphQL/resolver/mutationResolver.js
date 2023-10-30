@@ -2,7 +2,17 @@ const txnPoolModels = require('../../model/txnPools');
 const txnModels = require('../../model/txns');
 const l2txnModels = require('../../model/l2txns');
 const { pubsub } = require('../helper');
-const logger = require('pino-http')();
+const pino = require('pino');
+const logger = pino({
+  level: process.env.PINO_LOG_LEVEL ?? 'info',
+  formatters: {
+    bindings: (bindings) => ({ pid: bindings.pid, host: bindings.hostname }),
+    level: (label) => ({ level: label.toUpperCase()}),
+    },
+    timestamp: pino.stdTimeFunctions.isoTime,
+});
+
+
 
 module.exports = {
     RootMutation: {

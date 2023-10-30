@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { createYoga, createSchema } = require('graphql-yoga');
 const { createServer } = require('node:http');
-const logger = require('pino-http')();
 
 //  Loading Schema and Resolver
 const typeDefs = require('./graphQL/schema/index');
@@ -23,7 +22,7 @@ mongoose.connect(database)
         logger.info('Connection to DB successful');
     })
     .catch(err => {
-        logger.info(err, 'DB Connection Error!');
+        logger.error(err, 'DB Connection Error!');
     });
 
 // Create Yoga GraphQL Server
