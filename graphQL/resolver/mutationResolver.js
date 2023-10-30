@@ -18,10 +18,10 @@ module.exports = {
     RootMutation: {
         createTxnPoolData: async(parent, args, ctx, info) => {
             try {
-                logger.info('txpoolData create===============', args);
+                logger.info(args, 'txpoolData is creating ===============');
                 const query = { 'hash': args.newTxnPoolData.hash };
                 const txPoolDetails = await txnPoolModels.findOneAndUpdate(query, args.newTxnPoolData, { upsert: true, new: true });
-                logger.info('txpoolData create===============', txPoolDetails);
+                logger.info( txPoolDetails, '=============== txpoolData created');
                 pubsub.publish('txnPoolTopic', {
                     txnPool: txPoolDetails
                 });
@@ -32,10 +32,10 @@ module.exports = {
         },
         createTxnData: async(parent, args, ctx, info) => {
             try {
-                logger.info('TransactionData create===============', args);
+                logger.info(args, 'TransactionData is creating ===============');
                 const query = { 'hash': args.newTxnData.hash };
                 const txnDetails = await txnModels.findOneAndUpdate(query, args.newTxnData, { upsert: true, new: true });
-                logger.info('TransactionData create===============', txnDetails);
+                logger.info(txnDetails, '=============== TransactionData created');
                 pubsub.publish('txnTopic', {
                     txn: txnDetails
                 });
@@ -46,10 +46,10 @@ module.exports = {
         },
         createl2TxnData: async(parent, args, ctx, info) => {
             try {
-                logger.info('L2 TransactionData create===============', args);
+                logger.info(args, 'L2 TransactionData is creating ===============');
                 const query = { 'hash': args.newl2TxnData.hash };
                 const l2txnDetails = await l2txnModels.findOneAndUpdate(query, args.newl2TxnData, { upsert: true, new: true });
-                logger.info('L2 Transaction create===============', l2txnDetails);
+                logger.info(l2txnDetails, '=============== L2 Transaction created');
                 pubsub.publish('l2txnTopic', {
                     txn: l2txnDetails
                 });
@@ -58,6 +58,5 @@ module.exports = {
                 return error;
             }
     }
-},
-logger
+}
 }
