@@ -23,7 +23,7 @@ mongoose.connect(database)
         logger.info('Connection to DB successful');
     })
     .catch(err => {
-        logger.error(err, 'DB Connection Error!');
+        logger.info(err, 'DB Connection Error!');
     });
 
 // Create Yoga GraphQL Server
