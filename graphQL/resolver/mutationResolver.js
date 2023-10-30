@@ -8,7 +8,7 @@ module.exports = {
         createTxnPoolData: async(parent, args, ctx, info) => {
             try {
                 console.log('txpoolData create===============', args);
-                let query = { 'hash': args.newTxnPoolData.hash };
+                const query = { 'hash': args.newTxnPoolData.hash };
                 const txPoolDetails = await txnPoolModels.findOneAndUpdate(query, args.newTxnPoolData, { upsert: true, new: true });
                 console.log('txpoolData create===============', txPoolDetails);
                 pubsub.publish('txnPoolTopic', {
@@ -22,7 +22,7 @@ module.exports = {
         createTxnData: async(parent, args, ctx, info) => {
             try {
                 console.log('TransactionData create===============', args);
-                let query = { 'hash': args.newTxnData.hash };
+                const query = { 'hash': args.newTxnData.hash };
                 const txnDetails = await txnModels.findOneAndUpdate(query, args.newTxnData, { upsert: true, new: true });
                 console.log('TransactionData create===============', txnDetails);
                 pubsub.publish('txnTopic', {
@@ -36,7 +36,7 @@ module.exports = {
         createl2TxnData: async(parent, args, ctx, info) => {
             try {
                 console.log('L2 TransactionData create===============', args);
-                let query = { 'hash': args.newl2TxnData.hash };
+                const query = { 'hash': args.newl2TxnData.hash };
                 const l2txnDetails = await l2txnModels.findOneAndUpdate(query, args.newl2TxnData, { upsert: true, new: true });
                 console.log('L2 Transaction create===============', l2txnDetails);
                 pubsub.publish('l2txnTopic', {
