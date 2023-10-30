@@ -2,15 +2,16 @@ const txnPoolModels = require('../../model/txnPools');
 const txnModels = require('../../model/txns');
 const l2txnModels = require('../../model/l2txns');
 const { pubsub } = require('../helper');
+const logger = require('pino-http')();
 
 module.exports = {
     RootMutation: {
         createTxnPoolData: async(parent, args, ctx, info) => {
             try {
-                console.log('txpoolData create===============', args);
+                logger.info('txpoolData create===============', args);
                 const query = { 'hash': args.newTxnPoolData.hash };
                 const txPoolDetails = await txnPoolModels.findOneAndUpdate(query, args.newTxnPoolData, { upsert: true, new: true });
-                console.log('txpoolData create===============', txPoolDetails);
+                logger.info('txpoolData create===============', txPoolDetails);
                 pubsub.publish('txnPoolTopic', {
                     txnPool: txPoolDetails
                 });
@@ -21,10 +22,10 @@ module.exports = {
         },
         createTxnData: async(parent, args, ctx, info) => {
             try {
-                console.log('TransactionData create===============', args);
+                logger.info('TransactionData create===============', args);
                 const query = { 'hash': args.newTxnData.hash };
                 const txnDetails = await txnModels.findOneAndUpdate(query, args.newTxnData, { upsert: true, new: true });
-                console.log('TransactionData create===============', txnDetails);
+                logger.info('TransactionData create===============', txnDetails);
                 pubsub.publish('txnTopic', {
                     txn: txnDetails
                 });
@@ -35,10 +36,10 @@ module.exports = {
         },
         createl2TxnData: async(parent, args, ctx, info) => {
             try {
-                console.log('L2 TransactionData create===============', args);
+                logger.info('L2 TransactionData create===============', args);
                 const query = { 'hash': args.newl2TxnData.hash };
                 const l2txnDetails = await l2txnModels.findOneAndUpdate(query, args.newl2TxnData, { upsert: true, new: true });
-                console.log('L2 Transaction create===============', l2txnDetails);
+                logger.info('L2 Transaction create===============', l2txnDetails);
                 pubsub.publish('l2txnTopic', {
                     txn: l2txnDetails
                 });
