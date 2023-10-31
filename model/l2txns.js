@@ -34,6 +34,6 @@ const l2_txnDetails = new Schema({
                 timestamp: { type: Number, index: true},
                 transactions: { type: Array}   
         },
-        createdAt:  { type: String , index: true},
+        createdAt:  { type: Date, index: true},
 });
 module.exports = mongoose.model('l2_transactions', l2_txnDetails);

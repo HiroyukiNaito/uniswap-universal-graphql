@@ -19,6 +19,6 @@ const l1_txnPoolDetails = new Schema({
         signature: { type: Object},
         accessList: { type: Array},
         decodedData: { type: Object},
-        createdAt:  { type: String , index: true}
+        createdAt:  { type: Date, index: true, expires: 2592000}
 });
 module.exports = mongoose.model('l1_txnPools', l1_txnPoolDetails);

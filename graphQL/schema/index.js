@@ -3,6 +3,7 @@ module.exports = `
 
 scalar Object
 scalar JSON
+scalar Date
 
 type DecodedData {
     contents: [[Object]]
@@ -33,7 +34,7 @@ type TransactionData {
     data: String
     value: String
     chainId: String
-    createdAt: String
+    createdAt: Date
     decodedData: DecodedData
     accessList: [String]
     signature: Signature
@@ -86,7 +87,7 @@ input TransactionDataInput {
     data: String
     value: String
     chainId: String
-    createdAt: String
+    createdAt: Date
     decodedData: DecodedDataInput
     accessList: [String]
     signature: SignatureInput
