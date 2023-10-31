@@ -23,7 +23,7 @@ $ cd uniswap-universal-graphql
 $ yarn install 
 ```
 
-## 3. Set environmental valuables of uniswap-universal-batcher
+## 3. Set environmental valuables of uniswap-universal-graphql
 
 ```bash
 $ vi .env
