@@ -59,7 +59,7 @@ $ yarn nodemon app
 | [l2txns](https://github.com/HiroyukiNaito/uniswap-universal-graphql/blob/main/model/l2txns.js)        | _id, hash(unique), createdAt, blockHeader.timestamp   | L2 Transaction Data  |
 
 ## 7. Subscriptions
-Can subscript L1 latest txpool data, L1 transaction data and L2 transaction data
+Can subscribe L1 latest txpool data, L1 transaction data and L2 transaction data
 
 
 
