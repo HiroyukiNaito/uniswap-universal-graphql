@@ -150,6 +150,7 @@ subscription {
 ```
 
 - Subscribe most properties in the most recent **L2 Transaction data**
+- Note: L2 Uniswap transaction are significantly fewer than L1
 ```graphql
 subscription {
   l2txn {
