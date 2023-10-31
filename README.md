@@ -51,3 +51,10 @@ $ export $(cat .env | xargs)
 ```bash
 $ yarn nodemon app
 ```
+
+## 6. Models
+|  Model Name  | indeces  | Description |
+| ----         | ----     | ---- |
+|  txnPools    | _id, hash(unique), createdAt, | Transaction Pool Data|
+|  txns        | _id, hash(unique), createdAt, blockHeader.timestamp | L1 Transaction Data  | 
+| l2txn        | _id, hash(unique), createdAt, blockHeader.timestamp   | L2 Transaction Data  |
