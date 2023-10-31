@@ -57,4 +57,4 @@ $ yarn nodemon app
 | ----                                                                                                  | ----                                                  | ----                 |
 | [txnPools](https://github.com/HiroyukiNaito/uniswap-universal-graphql/blob/main/model/txnPools.js)    | _id, hash(unique), createdAt                          | Transaction Pool Data|
 | [txns](https://github.com/HiroyukiNaito/uniswap-universal-graphql/blob/main/model/txns.js)            | _id, hash(unique), createdAt, blockHeader.timestamp   | L1 Transaction Data  | 
-| [l2txn] (https://github.com/HiroyukiNaito/uniswap-universal-graphql/blob/main/model/l2txns.js)        | _id, hash(unique), createdAt, blockHeader.timestamp   | L2 Transaction Data  |
+| [l2txn](https://github.com/HiroyukiNaito/uniswap-universal-graphql/blob/main/model/l2txns.js)        | _id, hash(unique), createdAt, blockHeader.timestamp   | L2 Transaction Data  |
