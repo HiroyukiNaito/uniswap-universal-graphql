@@ -64,4 +64,4 @@ Can subscribe L1 latest txpool data, L1 transaction data and L2 transaction data
 
 
 ## 8. Listing Data
-Can list L1 latest txpool data, L1 transaction data and L2 transaction data
+Can list L1 txpool data, L1 transaction data and L2 transaction data
