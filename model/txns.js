@@ -4,7 +4,7 @@ const l1_txnDetails = new Schema({
         provider: { type: Object},
         blockNumber:  { type: Number},
         blockHash: { type: String},
-        hash: { type: String},
+        hash: { type: String, unique: true, required: true},
         type:{ type: Number},
         to:  { type: String},
         from:  { type: String},
@@ -19,7 +19,21 @@ const l1_txnDetails = new Schema({
         signature: { type: Object},
         accessList: { type: Array},
         decodedData: { type: Object},
-        blockHeader:  { type: Object},
-        createdAt:  { type: String},
+        blockHeader:  { 
+                _type: { type: String},
+                baseFeePerGas: { type: String},
+                difficulty: { type: String},
+                extraData: { type: String},
+                gasLimit: { type: String},
+                gasUsed: { type: String},
+                hash: { type: String},
+                miner: { type: String},
+                nonce: { type: String},
+                number:{ type: Number},
+                parentHash: { type: String},
+                timestamp: { type: Number, index: true},
+                transactions: { type: Array}   
+        },
+        createdAt:  { type: String , index: true}
 });
 module.exports = mongoose.model('l1_transactions', l1_txnDetails);
