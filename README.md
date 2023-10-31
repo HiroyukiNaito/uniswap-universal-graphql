@@ -203,9 +203,138 @@ subscription {
 ## 8. Listing Data
 Can list all obtained L1 txpool data, L1 transaction data and L2 transaction data
 
+- List **all txpool data**
 ```graphql
+query {
+  txnPoolList {
+    provider
+    blockNumber
+    blockHash
+    hash
+    type
+    to
+    from
+    nonce
+    gasLimit
+    gasPrice
+    maxPriorityFeePerGas
+    maxFeePerGas
+    data
+    value
+    chainId
+    createdAt
+    decodedData {
+      contents
+      deadline
+    }
+    accessList
+    signature {
+      _type
+      networkV
+      r
+      s
+      v
+    }
+  }  
+}
 ```
+
+- List **all L1 transaction data**
 ```graphql
+query {
+  txnList {
+    provider
+    blockNumber
+    blockHash
+    hash
+    type
+    to
+    from
+    nonce
+    gasLimit
+    gasPrice
+    maxPriorityFeePerGas
+    maxFeePerGas
+    data
+    value
+    chainId
+    createdAt
+    decodedData {
+      contents
+      deadline
+    }
+    accessList
+    signature {
+      _type
+      networkV
+      r
+      s
+      v
+    }
+    blockHeader {
+     _type
+     baseFeePerGas
+     difficulty
+     extraData
+     gasLimit
+     gasUsed
+     hash
+     miner
+     nonce
+     number
+     parentHash
+     timestamp
+    }
+  }  
+}
 ```
+
+- List **all L2 transaction data**
 ```graphql
+query {
+  l2txnList {
+    provider
+    blockNumber
+    blockHash
+    hash
+    type
+    to
+    from
+    nonce
+    gasLimit
+    gasPrice
+    maxPriorityFeePerGas
+    maxFeePerGas
+    data
+    value
+    chainId
+    createdAt
+    decodedData {
+      contents
+      deadline
+    }
+    accessList
+    signature {
+      _type
+      networkV
+      r
+      s
+      v
+    }
+    blockHeader {
+     _type
+     baseFeePerGas
+     difficulty
+     extraData
+     gasLimit
+     gasUsed
+     hash
+     miner
+     nonce
+     number
+     parentHash
+     timestamp
+    }
+  }  
+}
 ```
