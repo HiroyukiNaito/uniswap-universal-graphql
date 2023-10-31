@@ -63,6 +63,7 @@ $ yarn nodemon app
 ## 7. Subscriptions
 Can subscribe L1 latest txpool data, L1 transaction data and L2 transaction data
 
+### Subscription example
 - Subscribe all properties in the most recent **txpool data**
 ```graphql
 subscription {
@@ -200,9 +201,11 @@ subscription {
 }
 ```
 
-## 8. Listing Data
-Can list all obtained L1 txpool data, L1 transaction data and L2 transaction data
+## 8. Query Data
+- Can list all obtained L1 txpool data, L1 transaction data and L2 transaction data stored in Mongo DB
+- Other useful queries are considered now. Any suggestions are welcomed.
 
+### Query example
 - List **all txpool data**
 ```graphql
 query {
