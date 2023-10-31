@@ -58,12 +58,57 @@ $ yarn nodemon app
 | [txns](https://github.com/HiroyukiNaito/uniswap-universal-graphql/blob/main/model/txns.js)            | _id, hash(unique), createdAt, blockHeader.timestamp   | L1 Transaction Data  | 
 | [l2txns](https://github.com/HiroyukiNaito/uniswap-universal-graphql/blob/main/model/l2txns.js)        | _id, hash(unique), createdAt, blockHeader.timestamp   | L2 Transaction Data  |
 
-- Schemas are [here](https://github.com/HiroyukiNaito/uniswap-universal-graphql/blob/main/graphQL/schema/index.js)
+- Schemas are *[here](https://github.com/HiroyukiNaito/uniswap-universal-graphql/blob/main/graphQL/schema/index.js)*
 
 ## 7. Subscriptions
 Can subscribe L1 latest txpool data, L1 transaction data and L2 transaction data
 
-
+- Subscribe all properties in the most recent txpool data
+```graphql
+subscription {
+  txnPool {
+    provider
+    blockNumber
+    blockHash
+    hash
+    type
+    to
+    from
+    nonce
+    gasLimit
+    gasPrice
+    maxPriorityFeePerGas
+    maxFeePerGas
+    data
+    value
+    chainId
+    createdAt
+    decodedData {
+      contents
+      deadline
+    }
+    accessList
+    signature {
+      _type
+      networkV
+      r
+      s
+      v
+    }
+  }  
+}
+```
+```graphql
+```
+```graphql
+```
 
 ## 8. Listing Data
 Can list all obtained L1 txpool data, L1 transaction data and L2 transaction data
+
+```graphql
+```
+```graphql
+```
+```graphql
+```
