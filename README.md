@@ -51,12 +51,14 @@ $ export $(cat .env | xargs)
 $ yarn nodemon app
 ```
 
-## 6. Models
+## 6. Models and Schemas
 |  Model Name                                                                                           | Indeces                                               | Description          |
 | ----                                                                                                  | ----                                                  | ----                 |
 | [txnPools](https://github.com/HiroyukiNaito/uniswap-universal-graphql/blob/main/model/txnPools.js)    | _id, hash(unique), createdAt (ttl: 2592000)           | Transaction Pool Data. *This data will vanish after a month* |
 | [txns](https://github.com/HiroyukiNaito/uniswap-universal-graphql/blob/main/model/txns.js)            | _id, hash(unique), createdAt, blockHeader.timestamp   | L1 Transaction Data  | 
 | [l2txns](https://github.com/HiroyukiNaito/uniswap-universal-graphql/blob/main/model/l2txns.js)        | _id, hash(unique), createdAt, blockHeader.timestamp   | L2 Transaction Data  |
+
+- Schemas are [here](https://github.com/HiroyukiNaito/uniswap-universal-graphql/blob/main/graphQL/schema/index.js)
 
 ## 7. Subscriptions
 Can subscribe L1 latest txpool data, L1 transaction data and L2 transaction data
