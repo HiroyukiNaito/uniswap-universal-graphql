@@ -63,7 +63,7 @@ $ yarn nodemon app
 ## 7. Subscriptions
 Can subscribe L1 latest txpool data, L1 transaction data and L2 transaction data
 
-- Subscribe all properties in the most recent txpool data
+- Subscribe all properties in the most recent **txpool data**
 ```graphql
 subscription {
   txnPool {
@@ -98,9 +98,105 @@ subscription {
   }  
 }
 ```
+
+- Subscribe most properties in the most recent **L1 Transaction data**
 ```graphql
+subscription {
+  txn {
+    provider
+    blockNumber
+    blockHash
+    hash
+    type
+    to
+    from
+    nonce
+    gasLimit
+    gasPrice
+    maxPriorityFeePerGas
+    maxFeePerGas
+    data
+    value
+    chainId
+    createdAt
+    decodedData {
+      contents
+      deadline
+    }
+    accessList
+    signature {
+      _type
+      networkV
+      r
+      s
+      v
+    }
+    blockHeader {
+     _type
+     baseFeePerGas
+     difficulty
+     extraData
+     gasLimit
+     gasUsed
+     hash
+     miner
+     nonce
+     number
+     parentHash
+     timestamp
+    }
+  }  
+}
 ```
+
+- Subscribe most properties in the most recent **L2 Transaction data**
 ```graphql
+subscription {
+  l2txn {
+    provider
+    blockNumber
+    blockHash
+    hash
+    type
+    to
+    from
+    nonce
+    gasLimit
+    gasPrice
+    maxPriorityFeePerGas
+    maxFeePerGas
+    data
+    value
+    chainId
+    createdAt
+    decodedData {
+      contents
+      deadline
+    }
+    accessList
+    signature {
+      _type
+      networkV
+      r
+      s
+      v
+    }
+    blockHeader {
+     _type
+     baseFeePerGas
+     difficulty
+     extraData
+     gasLimit
+     gasUsed
+     hash
+     miner
+     nonce
+     number
+     parentHash
+     timestamp
+    }
+  }  
+}
 ```
 
 ## 8. Listing Data
