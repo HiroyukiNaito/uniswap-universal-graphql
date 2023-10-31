@@ -61,7 +61,7 @@ module.exports = {
         );
         logger.info(l2txnDetails, "=============== L2 Transaction created");
         pubsub.publish("l2txnTopic", {
-          txn: l2txnDetails,
+          l2txn: l2txnDetails,
         });
         return l2txnDetails;
       } catch (error) {
