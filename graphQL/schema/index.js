@@ -6,7 +6,7 @@ scalar JSON
 scalar Date
 
 type DecodedData {
-    contents: [[Object]]
+    contents: [Object]
     deadline: String
   }
   
@@ -59,7 +59,7 @@ type BlockHeader {
 
 
 input DecodedDataInput {
-    contents: [[Object]]
+    contents: [Object]
     deadline: String
   }
   
