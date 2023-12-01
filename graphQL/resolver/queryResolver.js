@@ -27,7 +27,7 @@ module.exports = {
     txnList: async (_, { limit }) => {
       try {
         limit > queryLimit ? (() => {throw new Error('limit number is greater than query limitation')})()
-                           : logger.info(`txnList with limit: ${limit}`);
+                           : logger.info(`txnList called with limit: ${limit}`);
         const getTxn = await txnModels.find().sort({'blockNumber': -1}).limit(limit);
         return getTxn;
       } catch (error) {
