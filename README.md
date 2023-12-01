@@ -209,7 +209,7 @@ subscription {
 - List **all txpool data**
 ```graphql
 query {
-  txnPoolList {
+  txnPoolList(limit: 100) {
     provider
     blockNumber
     blockHash
@@ -245,7 +245,7 @@ query {
 - List **all L1 transaction data**
 ```graphql
 query {
-  txnList {
+  txnList(limit: 100) {
     provider
     blockNumber
     blockHash
@@ -295,7 +295,7 @@ query {
 - List **all L2 transaction data**
 ```graphql
 query {
-  l2txnList {
+  l2txnList(limit: 100){
     provider
     blockNumber
     blockHash
