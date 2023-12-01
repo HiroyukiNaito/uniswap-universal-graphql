@@ -111,9 +111,9 @@ input BlockHeaderInput {
 }
 
 type RootQuery {
-    txnPoolList: [TransactionData!]!
-    txnList: [TransactionData!]!
-    l2txnList: [TransactionData!]!
+    txnPoolList(limit: Int!): [TransactionData!]!
+    txnList(limit: Int!): [TransactionData!]!
+    l2txnList(limit: Int!): [TransactionData!]!
 }
 
 type DeleteRes{
