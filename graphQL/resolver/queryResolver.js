@@ -10,7 +10,7 @@ const logger = pino({
   },
   timestamp: pino.stdTimeFunctions.isoTime,
 });
-const queryLimit = process.env.QUERY_LIMIT ?? 1000;
+const queryLimit = parseInt(process.env.QUERY_LIMIT ?? 1000);
 
 module.exports = {
   RootQuery: {
