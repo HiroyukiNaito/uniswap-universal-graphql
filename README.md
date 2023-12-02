@@ -3,7 +3,7 @@ Store uniswap universal router decoded data to Mongo DB as mutations and distrib
 
 # Prerequisite
 - [Uniswap Universal Publisher](https://github.com/HiroyukiNaito/uniswap-universal-publisher): The GraphQL receive data from the Uniswap Universal Publisher through mutations
-- Mongo DB: Mutations regist data to the Mongo DB
+- Mongo DB: Mutations register data to the Mongo DB
 
 # Installation and Running
 
