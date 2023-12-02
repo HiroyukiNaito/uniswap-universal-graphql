@@ -10,8 +10,8 @@ const logger = pino({
   },
   timestamp: pino.stdTimeFunctions.isoTime,
 });
+const queryLimit = process.env.QUERY_LIMIT ?? 1000;
 
-const queryLimit = 1000;
 module.exports = {
   RootQuery: {
     txnPoolList: async (_, { limit }) => {

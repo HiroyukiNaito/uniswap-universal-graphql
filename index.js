@@ -9,8 +9,8 @@ const pino = require('pino');
 const logger = pino({
   level: process.env.PINO_LOG_LEVEL ?? 'info',
   formatters: {
-    bindings: (bindings) => ({ pid: bindings.pid, host: bindings.hostname }),
-    level: (label) => ({ level: label.toUpperCase()}),
+    bindings: (bindings) => ({pid: bindings.pid, host: bindings.hostname}),
+    level: (label) => ({level: label.toUpperCase()}),
     },
     timestamp: pino.stdTimeFunctions.isoTime,
 });
@@ -77,8 +77,7 @@ useServer(
         }
    
         const errors = validate(args.schema, args.document)
-        if (errors.length) return errors
-        return args
+        return (errors.length) ? errors : args
       }
     },
     wsServer
