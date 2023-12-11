@@ -100,7 +100,7 @@ subscription {
 }
 ```
 
-- Subscribe most properties in the most recent **L1 Transaction data**
+- Subscribe almost all properties in the most recent **L1 Transaction data**
 ```graphql
 subscription {
   txn {
@@ -150,7 +150,57 @@ subscription {
 }
 ```
 
-- Subscribe most properties in the most recent **L2 Transaction data**
+- Subscribe almost all properties in the most recent **L1 Transaction data in bulk**
+```graphql
+subscription {
+  txnBulk {
+    provider
+    blockNumber
+    blockHash
+    hash
+    type
+    to
+    from
+    nonce
+    gasLimit
+    gasPrice
+    maxPriorityFeePerGas
+    maxFeePerGas
+    data
+    value
+    chainId
+    createdAt
+    decodedData {
+      contents
+      deadline
+    }
+    accessList
+    signature {
+      _type
+      networkV
+      r
+      s
+      v
+    }
+    blockHeader {
+     _type
+     baseFeePerGas
+     difficulty
+     extraData
+     gasLimit
+     gasUsed
+     hash
+     miner
+     nonce
+     number
+     parentHash
+     timestamp
+    }
+  }  
+}
+```
+
+- Subscribe almost all properties in the most recent **L2 Transaction data**
 - Note: L2 Uniswap transaction are significantly fewer than L1
 ```graphql
 subscription {
@@ -200,6 +250,58 @@ subscription {
   }  
 }
 ```
+- Subscribe almost all properties in the most recent **L2 Transaction data in bulk**
+- Note: L2 Uniswap transaction are significantly fewer than L1
+```graphql
+subscription {
+  l2txnBulk {
+    provider
+    blockNumber
+    blockHash
+    hash
+    type
+    to
+    from
+    nonce
+    gasLimit
+    gasPrice
+    maxPriorityFeePerGas
+    maxFeePerGas
+    data
+    value
+    chainId
+    createdAt
+    decodedData {
+      contents
+      deadline
+    }
+    accessList
+    signature {
+      _type
+      networkV
+      r
+      s
+      v
+    }
+    blockHeader {
+     _type
+     baseFeePerGas
+     difficulty
+     extraData
+     gasLimit
+     gasUsed
+     hash
+     miner
+     nonce
+     number
+     parentHash
+     timestamp
+    }
+  }  
+}
+```
+
+
 
 ## 8. Query Data
 - Can list all obtained L1 txpool data, L1 transaction data and L2 transaction data stored in Mongo DB
