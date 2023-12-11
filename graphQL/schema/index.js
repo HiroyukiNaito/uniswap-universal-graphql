@@ -124,12 +124,16 @@ type RootMutation {
     createTxnPoolData(newTxnPoolData: TransactionDataInput!): TransactionData!
     createTxnData(newTxnData: TransactionDataInput!): TransactionData!
     createl2TxnData(newl2TxnData: TransactionDataInput!): TransactionData!
+    createBulkTxnData(newTxnData: [TransactionDataInput!]!): [TransactionData!]!
+    createBulkl2TxnData(newl2TxnData: [TransactionDataInput!]!): [TransactionData!]!
 }
 
 type Subscription{
     txnPool: TransactionData!
     txn: TransactionData!
     l2txn: TransactionData!
+    txnBulk: [TransactionData!]!
+    l2txnBulk: [TransactionData!]!
 }
 
 schema {
