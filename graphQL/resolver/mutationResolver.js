@@ -3,6 +3,8 @@ const txnModels = require("../../model/txns");
 const l2txnModels = require("../../model/l2txns");
 const { pubsub } = require("../helper");
 const pino = require("pino");
+const authenticateUser = require("../../auth");
+
 const logger = pino({
   level: process.env.PINO_LOG_LEVEL ?? "info",
   formatters: {
@@ -16,8 +18,11 @@ module.exports = {
   RootMutation: {
     createTxnPoolData: async (parent, args, ctx, info) => {
       try {
-        // logger.info("txpoolData is creating ===============");
-        logger.info({hash: args.newTxnPoolData.hash}, "txpoolData is creating ===============");
+        logger.info("Mutation Authorization start ===============");
+        const result = authenticateUser(ctx.request);
+        logger.info(result);
+        logger.info("=============== Mutation Authorization ended");
+        logger.info({hash: args.newTxnPoolData.hash, ctx: ctx.request.headers.get('authorization'), info: ""}, "txpoolData is creating ===============");
         const query = { hash: args.newTxnPoolData.hash };
         const txPoolDetails = await txnPoolModels.findOneAndUpdate(
           query,
@@ -35,6 +40,10 @@ module.exports = {
     },
     createTxnData: async (parent, args, ctx, info) => {
       try {
+        logger.info("Mutation Authorization start ===============");
+        const result = authenticateUser(ctx.request);
+        logger.info(result);
+        logger.info("=============== Mutation Authorization ended");
         logger.info({hash: args.newTxnData.hash}, "TransactionData is creating ===============");
         const query = { hash: args.newTxnData.hash };
         const txnDetails = await txnModels.findOneAndUpdate(
@@ -53,6 +62,10 @@ module.exports = {
     },
     createBulkTxnData: async (parent, args, ctx, info) => {
       try {
+        logger.info("Mutation Authorization start ===============");
+        const result = authenticateUser(ctx.request);
+        logger.info(result);
+        logger.info("=============== Mutation Authorization ended");
         logger.info(args.newTxnData.map(array=>array.hash), "TransactionData is creating **in Bulk** ===============");
         const txnDetails = await txnModels.insertMany(args.newTxnData);
         logger.info(txnDetails.map(array=>array.hash), "=============== TransactionData created **in Bulk** ");
@@ -66,6 +79,10 @@ module.exports = {
     },
     createl2TxnData: async (parent, args, ctx, info) => {
       try {
+        logger.info("Mutation Authorization start ===============");
+        const result = authenticateUser(ctx.request);
+        logger.info(result);
+        logger.info("=============== Mutation Authorization ended");
         logger.info({ hash: args.newl2TxnData.hash }, "L2 TransactionData is creating ===============");
         const query = { hash: args.newl2TxnData.hash };
         const l2txnDetails = await l2txnModels.hash.findOneAndUpdate(
@@ -84,6 +101,10 @@ module.exports = {
     },
     createBulkl2TxnData: async (parent, args, ctx, info) => {
       try {
+        logger.info("Mutation Authorization start ===============");
+        const result = authenticateUser(ctx.request);
+        logger.info(result);
+        logger.info("=============== Mutation Authorization ended");
         logger.info(args.newl2TxnData.map(array=>array.hash), "TransactionData is creating **in Bulk** ===============");
         const l2txnDetails = await l2txnModels.insertMany(args.newl2TxnData);
         logger.info(l2txnDetails.map(array=>array.hash), "=============== L2 TransactionData created **in Bulk** ");
