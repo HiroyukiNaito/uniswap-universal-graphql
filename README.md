@@ -45,6 +45,9 @@ QUERY_LIMIT=100
 
 # Access token for Mmutation
 APP_SECRET=AccessToken
+
+# Data will expire (delete) following seconds
+EXPIRE_TIME=86400
 ```
 
 ## 4. Export environmental valuables
