@@ -32,9 +32,9 @@ const l2_txnDetails = new Schema({
                 nonce: { type: String},
                 number:{ type: Number},
                 parentHash: { type: String},
-                timestamp: { type: Number, index: true, type: -1},
+                timestamp: { type: Number, index: true},
                 transactions: { type: Array}   
         },
-        createdAt:  { type: Date, index: true, type: -1, expires: expireTime},
+        createdAt:  { type: Date, index: true, expires: expireTime},
 });
 module.exports = mongoose.model('l2_transactions', l2_txnDetails);
