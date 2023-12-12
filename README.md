@@ -39,6 +39,12 @@ MONGODB_USER=user
 
 # Your Mongo DB user password
 MONGODB_PASSWORD=password
+
+# Maximum object number by query 
+QUERY_LIMIT=100
+
+# Access token for Mmutation
+APP_SECRET=AccessToken
 ```
 
 ## 4. Export environmental valuables
