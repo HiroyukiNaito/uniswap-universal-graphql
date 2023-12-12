@@ -1,3 +1,4 @@
+const expireTime = parseInt(process.env.EXPIRE_TIME ?? 2592000);
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const l1_txnPoolDetails = new Schema({
@@ -19,6 +20,6 @@ const l1_txnPoolDetails = new Schema({
         signature: { type: Object},
         accessList: { type: Array},
         decodedData: { type: Object},
-        createdAt:  { type: Date, index: true, expires: 2592000}
+        createdAt:  { type: Date, index: true, type: -1, expires: expireTime}
 });
 module.exports = mongoose.model('l1_txnPools', l1_txnPoolDetails);

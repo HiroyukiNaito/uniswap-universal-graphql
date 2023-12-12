@@ -1,3 +1,4 @@
+const expireTime = parseInt(process.env.EXPIRE_TIME ?? 2592000);
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const l1_txnDetails = new Schema({
@@ -31,9 +32,9 @@ const l1_txnDetails = new Schema({
                 nonce: { type: String},
                 number:{ type: Number},
                 parentHash: { type: String},
-                timestamp: { type: Number, index: true},
+                timestamp: { type: Number, index: true, type: -1 },
                 transactions: { type: Array}   
         },
-        createdAt:  { type: Date, index: true}
+        createdAt:  { type: Date, index: true, type: -1, expires: expireTime}
 });
 module.exports = mongoose.model('l1_transactions', l1_txnDetails);
