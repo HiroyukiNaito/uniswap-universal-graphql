@@ -16,9 +16,15 @@ module.exports = {
   RootQuery: {
     txnPoolList: async (_, { limit }) => {
       try {
-        limit > queryLimit ? (() => {throw new Error('limit number is greater than query limitation')})()
-                           : logger.info(`txnPoollist called with limit: ${limit}`);
-        const getTxn = await txnPoolModels.find().sort({'createdAt': -1}).limit(limit);
+        limit > queryLimit || limit < 1
+          ? (() => {
+              throw new Error("Out of limit number!");
+            })()
+          : logger.info(`txnPoollist called with limit: ${limit}`);
+        const getTxn = await txnPoolModels
+          .find()
+          .sort({ createdAt: -1 })
+          .limit(limit);
         return getTxn;
       } catch (error) {
         return error;
@@ -26,9 +32,15 @@ module.exports = {
     },
     txnList: async (_, { limit }) => {
       try {
-        limit > queryLimit ? (() => {throw new Error('limit number is greater than query limitation')})()
-                           : logger.info(`txnList called with limit: ${limit}`);
-        const getTxn = await txnModels.find().sort({'blockNumber': -1}).limit(limit);
+        limit > queryLimit || limit < 1
+          ? (() => {
+              throw new Error("Out of limit number!");
+            })()
+          : logger.info(`txnList called with limit: ${limit}`);
+        const getTxn = await txnModels
+          .find()
+          .sort({ blockNumber: -1 })
+          .limit(limit);
         return getTxn;
       } catch (error) {
         return error;
@@ -36,9 +48,15 @@ module.exports = {
     },
     l2txnList: async (_, { limit }) => {
       try {
-        limit > queryLimit ? (() => {throw new Error('limit number is greater than query limitation')})()
-                           : logger.info(`l2txnList called with limit: ${limit}`);
-        const getTxn = await l2txnModels.find().sort({'blockNumber': -1}).limit(limit);
+        limit > queryLimit || limit < 1
+          ? (() => {
+              throw new Error("Out of limit number!");
+            })()
+          : logger.info(`l2txnList called with limit: ${limit}`);
+        const getTxn = await l2txnModels
+          .find()
+          .sort({ blockNumber: -1 })
+          .limit(limit);
         return getTxn;
       } catch (error) {
         return error;
