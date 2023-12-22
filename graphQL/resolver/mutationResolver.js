@@ -22,7 +22,7 @@ module.exports = {
         const result = authenticateUser(ctx.request);
         logger.info(result);
         logger.info("=============== Mutation Authorization ended");
-        logger.info({hash: args.newTxnPoolData.hash, ctx: ctx.request.headers.get('authorization'), info: ""}, "txpoolData is creating ===============");
+        logger.info({hash: args.newTxnPoolData.hash, info: ""}, "txpoolData is creating ===============");
         const query = { hash: args.newTxnPoolData.hash };
         const txPoolDetails = await txnPoolModels.findOneAndUpdate(
           query,

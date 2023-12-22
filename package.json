@@ -8,6 +8,7 @@
         "start": "nodemon -e js,json"
     },
     "dependencies": {
+        "@graphql-yoga/plugin-disable-introspection": "^2.0.2",
         "body-parser": "^1.20.2",
         "graphql": "^16.8.1",
         "graphql-ws": "^5.14.2",
