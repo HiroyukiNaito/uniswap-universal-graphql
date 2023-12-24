@@ -30,7 +30,7 @@ const user = process.env.MONGODB_USER;
 const pass = process.env.MONGODB_PASSWORD;
 const database = `mongodb://${user}:${pass}@${mongo_server}:27017/${db}`;
 
-const useGraphiql = Boolean(process.env.USE_GRAPHIQL) ?? false;
+const useGraphiql = (process.env.GRAPHIQL ?? false).trim() === "ON" ? true : false;
 
 logger.info(database, "MongoDB connection string");
 mongoose
