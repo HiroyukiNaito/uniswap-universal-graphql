@@ -49,8 +49,8 @@ APP_SECRET=AccessToken
 # Data will expire (delete) following seconds
 EXPIRE_TIME=86400
 
-# If you want to use GraphiQL, assign `true` 
-USE_GRAPHIQL=true
+# If you want to use GraphiQL, assign 'ON' 
+GRAPHIQL=ON
 ```
 
 ## 4. Export environmental valuables
